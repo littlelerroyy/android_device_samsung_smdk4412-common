@@ -28,7 +28,10 @@ on charger
     write /sys/devices/platform/s5p-ehci/power/control auto
 
 on post-fs-data
-
+# macloader
+    write /data/.cid.info 0
+    restorecon /data/.cid.info
+    
 # data/log
     mkdir /data/log 0775 system log
     chown system log /data/log
